@@ -1,0 +1,161 @@
+[gd_scene load_steps=20 format=3 uid="uid://ch1gkcf2naj0b"]
+
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_ia56b"]
+[ext_resource type="Texture2D" uid="uid://bnntderdddolq" path="res://characters/player/zombie_tilesheet.png" id="2_6o313"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sq0m"]
+size = Vector2(58, 42.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcw08"]
+atlas = ExtResource("2_6o313")
+region = Rect2(320, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg8tj"]
+atlas = ExtResource("2_6o313")
+region = Rect2(240, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1biq"]
+atlas = ExtResource("2_6o313")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ega"]
+atlas = ExtResource("2_6o313")
+region = Rect2(560, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coubr"]
+atlas = ExtResource("2_6o313")
+region = Rect2(640, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwapq"]
+atlas = ExtResource("2_6o313")
+region = Rect2(480, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8442u"]
+atlas = ExtResource("2_6o313")
+region = Rect2(160, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub44g"]
+atlas = ExtResource("2_6o313")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utrdf"]
+atlas = ExtResource("2_6o313")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlh1n"]
+atlas = ExtResource("2_6o313")
+region = Rect2(320, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52b3m"]
+atlas = ExtResource("2_6o313")
+region = Rect2(400, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it3wj"]
+atlas = ExtResource("2_6o313")
+region = Rect2(480, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lsd2"]
+atlas = ExtResource("2_6o313")
+region = Rect2(320, 220, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qutf4"]
+atlas = ExtResource("2_6o313")
+region = Rect2(400, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p75a"]
+atlas = ExtResource("2_6o313")
+region = Rect2(480, 0, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34xqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcw08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg8tj")
+}],
+"loop": false,
+"name": &"die",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1biq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ega")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coubr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwapq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8442u")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub44g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utrdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlh1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52b3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it3wj")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lsd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qutf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p75a")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 4.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(400, 300)
+scale = Vector2(0.4, 0.4)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_ia56b")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 33.75)
+shape = SubResource("RectangleShape2D_2sq0m")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_34xqc")
+animation = &"die"
+
+[node name="RegenerateStaminaTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="RegenerateStaminaTimer" to="." method="_on_regenerate_stamina"]

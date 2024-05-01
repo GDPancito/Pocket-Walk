@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://otmoxeq3vwhv"]
+
+[ext_resource type="PackedScene" uid="uid://di5cqoylsiuih" path="res://gui/hud/hud.tscn" id="1_1527s"]
+[ext_resource type="Script" path="res://main/main.gd" id="1_sx204"]
+[ext_resource type="PackedScene" uid="uid://bhjfhirmsoatd" path="res://main/world/world.tscn" id="2_quflq"]
+[ext_resource type="AudioStream" uid="uid://bwrsek4f3o2ud" path="res://House In a Forest Loop.ogg" id="4_iwffc"]
+[ext_resource type="AudioStream" uid="uid://denkaskkdlt36" path="res://gameover.wav" id="5_4wbw5"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_sx204")
+
+[node name="World" parent="." instance=ExtResource("2_quflq")]
+
+[node name="HUD" parent="." instance=ExtResource("1_1527s")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iwffc")
+autoplay = true
+bus = &"Music"
+
+[node name="EffectsPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4wbw5")
+bus = &"Effects"

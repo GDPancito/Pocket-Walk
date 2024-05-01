@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgxitvl4parvp"]
+
+[ext_resource type="Texture2D" uid="uid://pn85u5sged1j" path="res://characters/enemy/enemyFloating_1.png" id="1_id01l"]
+[ext_resource type="Script" path="res://characters/enemy/enemy.gd" id="1_qe614"]
+[ext_resource type="Texture2D" uid="uid://dlmtq0acc4348" path="res://characters/enemy/enemyFloating_2.png" id="2_ous7d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x27f4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_id01l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ous7d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pig2"]
+radius = 15.0333
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8nqh4"]
+radius = 14.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_qe614")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_x27f4")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4pig2")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8nqh4")
+
+[node name="NaviAgent" type="NavigationAgent2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
