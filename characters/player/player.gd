@@ -39,8 +39,7 @@ func _process(_delta):
 	velocity = Vector2.ZERO
 	
 	# obtener dirección normalizada del movimiento
-	direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
-	direction = direction.normalized()
+	direction = Global.get_axis()
 	
 	# mover
 	if direction:

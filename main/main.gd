@@ -10,12 +10,16 @@ func _ready():
 		$HUD._on_Player_stamina_changed)
 	$World/Player.player_hit.connect(self._player_hit)
 
-# TODO: toggle pause
 
 func _player_hit():
 	$HUD.game_over()
 	$MusicPlayer.stop()
 	$EffectsPlayer.play()
+	
+	# guardar puntuación si es más alta que la anterior
+	if Global.config.get_value("game","points", 0) < points:
+		Global.set_setting("game","points",points)
+	
 	await get_tree().create_timer(GAME_OVER_WAIT_TIME).timeout
 	get_tree().change_scene_to_file("res://gui/menu/main_menu.tscn")
 

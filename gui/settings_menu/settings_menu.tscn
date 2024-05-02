@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7fb1dy51anfr"]
+
+[ext_resource type="Script" path="res://gui/settings_menu/settings_menu.gd" id="1_yjt0r"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yjt0r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "LANG"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LangOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "default"
+popup/item_0/id = 0
+popup/item_1/text = "español"
+popup/item_1/id = 1
+popup/item_2/text = "english"
+popup/item_2/id = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 86.0
+offset_bottom = 36.0
+focus_neighbor_right = NodePath("../VBoxContainer/HBoxContainer/LangOptionButton")
+focus_neighbor_bottom = NodePath("../VBoxContainer/HBoxContainer/LangOptionButton")
+text = "GO_BACK"
+flat = true
+
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/LangOptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
