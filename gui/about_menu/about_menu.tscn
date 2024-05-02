@@ -161,6 +161,7 @@ express Statement of Purpose.
     this CC0 or use of the Work."
 
 [node name="DEV_TAB" type="HBoxContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -185,6 +186,32 @@ uri = "https://github.com/GDPancito/Pocket-Walk"
 [node name="Label2" type="Label" parent="TabContainer/DEV_TAB/VBoxContainer"]
 layout_mode = 2
 text = "VERSION"
+
+[node name="CONTRIBUTORS" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="TabContainer/CONTRIBUTORS"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/CONTRIBUTORS/VBoxContainer"]
+layout_mode = 2
+text = "PICT"
+
+[node name="LinkButton" type="LinkButton" parent="TabContainer/CONTRIBUTORS/VBoxContainer"]
+layout_mode = 2
+text = "Mike Hindle"
+uri = "https://unsplash.com/es/@mikehindle?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+
+[node name="Label2" type="Label" parent="TabContainer/CONTRIBUTORS/VBoxContainer"]
+layout_mode = 2
+text = "IN"
+
+[node name="LinkButton2" type="LinkButton" parent="TabContainer/CONTRIBUTORS/VBoxContainer"]
+layout_mode = 2
+text = "Unsplash"
+uri = "https://unsplash.com/es/fotos/una-vista-de-cerca-de-una-hoja-verde-Ha_1LvyEo-E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

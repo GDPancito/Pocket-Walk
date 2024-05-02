@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://new_audio_bus_layout.tres"
+buses/default_bus_layout="res://assets/audio/new_audio_bus_layout.tres"
 
 [autoload]
 
@@ -83,7 +83,7 @@ toggle_pause={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://lang/translations.en.translation", "res://lang/translations.es.translation")
+locale/translations=PackedStringArray("res://assets/lang/translations.en.translation", "res://assets/lang/translations.es.translation")
 
 [layer_names]
 

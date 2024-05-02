@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://di5cqoylsiuih" path="res://gui/hud/hud.tscn" id="1_1527s"]
 [ext_resource type="Script" path="res://main/main.gd" id="1_sx204"]
 [ext_resource type="PackedScene" uid="uid://bhjfhirmsoatd" path="res://main/world/world.tscn" id="2_quflq"]
-[ext_resource type="AudioStream" uid="uid://bwrsek4f3o2ud" path="res://House In a Forest Loop.ogg" id="4_iwffc"]
-[ext_resource type="AudioStream" uid="uid://denkaskkdlt36" path="res://gameover.wav" id="5_4wbw5"]
+[ext_resource type="AudioStream" uid="uid://bwrsek4f3o2ud" path="res://assets/audio/House In a Forest Loop.ogg" id="4_iwffc"]
+[ext_resource type="AudioStream" uid="uid://denkaskkdlt36" path="res://assets/audio/gameover.wav" id="5_4wbw5"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sx204")

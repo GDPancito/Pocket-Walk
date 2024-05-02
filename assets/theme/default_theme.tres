@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bf2f7l00r6b32"]
+
+[sub_resource type="SystemFont" id="SystemFont_3qj56"]
+font_names = PackedStringArray("Fira Code")
+
+[resource]
+default_font = SubResource("SystemFont_3qj56")
+default_font_size = 20
